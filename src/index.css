@@ -1,0 +1,94 @@
+.tablero {
+    width: 300px;
+    height: 300px;
+    margin: auto;
+    margin-top: 20px;
+
+}
+
+.posicion1 {
+    width: 100px;
+    height: 100px;
+    border-right: 2px solid red;
+    border-bottom: 2px solid red;
+    text-align: center;
+}
+
+.posicion2 {
+    width: 100px;
+    height: 100px;
+    border-left: none;
+    border-top: none;
+    border-right: 2px solid red;
+    border-bottom: 2px solid red;
+    text-align: center;
+}
+
+.posicion3 {
+    width: 100px;
+    height: 100px;
+    border-bottom: 2px solid red;
+    text-align: center;
+}
+
+.posicion4 {
+    width: 100px;
+    height: 100px;
+    border-right: 2px solid red;
+    border-bottom: 2px solid red;
+    text-align: center;
+}
+
+.posicion5 {
+    width: 100px;
+    height: 100px;
+    border-left: none;
+    border-top: none;
+    border-right: 2px solid red;
+    border-bottom: 2px solid red;
+    text-align: center;
+}
+
+.posicion6 {
+    width: 100px;
+    height: 100px;
+    border-bottom: 2px solid red;
+    text-align: center;
+}
+
+.posicion7 {
+    width: 100px;
+    height: 100px;
+    border-right: 2px solid red;
+    text-align: center;
+}
+
+.posicion8 {
+    width: 100px;
+    height: 100px;
+    border-right: 2px solid red;
+    text-align: center;
+}
+
+.posicion9 {
+    width: 100px;
+    height: 100px;
+    text-align: center;
+}
+
+.juego {
+    width: 100%;
+    height: 100px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    background: darkgreen;
+
+}
+
+.titulo {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+
+}

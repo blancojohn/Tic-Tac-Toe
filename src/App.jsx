@@ -1,8 +1,11 @@
 import React from 'react';
+import Weapon from './componentes/weapon';
 
 const App = () => {
     return (
-        <h1>REACT APP</h1>
+        <>
+            <Weapon />
+        </>
     )
 }
 
