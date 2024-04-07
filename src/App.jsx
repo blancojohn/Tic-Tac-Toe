@@ -1,10 +1,10 @@
 import React from 'react';
-import Weapon from './componentes/weapon';
+import TicTacToe from './componentes/TicTacToe';
 
 const App = () => {
     return (
         <>
-            <Weapon />
+            <TicTacToe />
         </>
     )
 }
