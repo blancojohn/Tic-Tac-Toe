@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 
-
 const TicTacToe = () => {
+    const [formulario, setFormulario]= useState({
+        player1: '',
+        player2: '',
+        arma: '',
+    })
 
-    const [jugador1, setJugador1] = useState("");
-    const [jugador2, setJugador2] = useState("");
-    const [arma, setArma] = useState("");
-    const [ocultarFormulario, setOcultarFormulario]= useState(false)
     const [winner, setWinner] = useState(false)
+
     const [linesWinner] = useState([
         [0, 1, 2],
         [3, 4, 5],
@@ -18,17 +19,17 @@ const TicTacToe = () => {
         [0, 4, 8],
         [2, 4, 6]
     ])
-    //const [tablero, setTablero] = useState(Array.from({ length: 9 }, () => null))
+    
     const [tablero, setTablero] = useState(new Array(9).fill(null));
     const casilla = (index) => {
         const jugada = [...tablero]
         if (jugada[index] === null) {
-            jugada[index] = arma
+            jugada[index] = formulario.arma
             setTablero(jugada)
-            if (arma === "X") {
-                setArma("O")
+            if (formulario.arma === "X") {
+                setFormulario({...formulario, arma: 'O'})
             } else {
-                setArma("X")
+                setFormulario({...formulario, arma: 'X'})
             }
 
             obtenerwinner(index, jugada)
@@ -48,34 +49,41 @@ const TicTacToe = () => {
         }
     }
     let total = tablero.reduce((i, valor) => valor !== null ? i + 1 : i + 0, 0)
-    console.log(total)
+    console.log('aca estoy:',total)
     return (
         <>
             {
                 winner ?
                     (total % 2 === 0) ?
-                        "WINS:" + jugador2
+                        "WINS:" + formulario.player2
                         :
-                        "WINS:" + jugador1
-                    : null
+                        "WINS:" + formulario.player1
+                    : total === 9 ?
+                        "DRAW"
+                        :
+                        null            
             }
-            <div className='titulo'>
-                <h1>Tic Tac Toe in React.js</h1>
-            </div>
-            <div className='juego'>
-                <div className="players" >
+            
+            <div className='contenedor'>
+                <div className="entry-players" >{/* anteriormente se llamaba players */}
                     <h3>Choose your weapon</h3>
-                    <input type="text" placeholder="player1" value={jugador1} onChange={(e) => { setJugador1(e.target.value); }} />
-                    <input type="text" placeholder="player2" value={jugador2} onChange={(e) => { setJugador2(e.target.value); }} />
-                    <button className="boton" onClick={() => setArma("X")}>X</button>
-                    <button className="boton" onClick={() => setArma("O")}>O</button>
+                    <input type="text" placeholder="player1" value={formulario.player1} onChange={e => {
+                        setFormulario({...formulario, player1: e.target.value})
+                    }} />
+                    <input type="text" placeholder="player2" value={formulario.player2} onChange={e => {
+                        setFormulario({...formulario, player2: e.target.value})
+                    }}/>
+                    <button className="boton" onClick={() => {
+                        setFormulario({...formulario, arma: 'X'})
+                    }}>X</button>
+                    <button className="boton" onClick={() => {
+                        setFormulario({...formulario, arma: 'O'})
+                    }}>O</button>
                 </div>
             </div>
 
-
-
             {
-                (arma !== '' && jugador1 !== '' && jugador2 !== '') && (
+                (formulario.player1 !== '' && formulario.player2 !== '' && formulario.arma) && (
                     <div className='tablero'>
                         <div className='row'>
                             <div className='col-3 posicion1' onClick={() => casilla(0)}>{tablero[0]}</div>
@@ -117,3 +125,6 @@ export default TicTacToe
 
 
 
+
+
+ 
