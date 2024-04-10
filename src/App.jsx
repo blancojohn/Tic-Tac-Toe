@@ -1,6 +1,5 @@
 import React from 'react';
-import TicTacToe from './componentes/TicTacToe';
-import PlayInit from './componentes/PlayInit';
+import TicTacToe from './componentes/PlayActions';
 
 
 const App = () => {

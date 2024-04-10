@@ -23,6 +23,7 @@ const TicTacToe = () => {
     const [winner, setWinner] = useState(false)
     const [tablero, setTablero] = useState(new Array(9).fill(null));
 
+    /* INICIA EL JUEGO Y SIGUIENTES JUGADAS */
     const casilla = (index) => {
         const jugada = [...tablero]
         if (jugada[index] === null) {
@@ -51,25 +52,35 @@ const TicTacToe = () => {
         }
     }
     let total = tablero.reduce((i, valor) => valor !== null ? i + 1 : i + 0, 0)
-    console.log('aca estoy:',total)
-    console.log(tablero)
     return (
-        <>
-            <div class="position-absolute top-0 start-50 translate-middle-x">
+        <>  
+            <div className="position-absolute top-0 start-50 translate-middle-x">
                 <h1>TIC-TAC-TOE In React Js</h1>
             </div>
-            {
-                winner ?
-                    (total % 2 === 0) ?
-                        "WINS:" + formulario.player2
-                        :
-                        "WINS:" + formulario.player1
-                    : total === 9 ?
-                        "DRAW!"
-                        :
-                        null            
-            }
+            <h2 className='d-flex mt-5 justify-content-center'>
+                {
+                    (formulario.arma) ? (
+                        'JUEGA: ' + formulario.arma) :
+                        <h2 className='d-flex mt-5 justify-content-center'>
+                            SELECCIONA UN ARMA
+                        </h2>
+                }
+            </h2>
             
+            <h2 className='d-flex mt-5 justify-content-center'>
+                {
+                    (winner) ?
+                        ((total % 2 === 0) ?
+                            "WINS:" + formulario.player2
+                            :
+                            "WINS:" + formulario.player1)
+                        : ((total === 9) ?
+                            "DRAW!"
+                            :
+                            null)            
+                }
+            </h2>
+             
             {   
                 
                 (formulario.player1 !== '' && formulario.player2 !== '' && formulario.arma) ? (
@@ -99,7 +110,8 @@ const TicTacToe = () => {
         </>
             )
     }
-    export default TicTacToe
+
+export default TicTacToe 
 
     
 
@@ -124,6 +136,8 @@ const TicTacToe = () => {
 
 
 
+
+            
 
 
 
